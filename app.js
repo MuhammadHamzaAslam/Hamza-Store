@@ -40,3 +40,25 @@ function searchThing() {
 displayCards()
 
 let cartBtn = document.querySelectorAll('#cart')
+for (let i = 0; i < cartBtn.length; i++) {
+    cartBtn[i].addEventListener('click',()=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to place order",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Place Order!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "Ordered!",
+                text: "Your Order Has Been Place",
+                icon: "success"
+              });
+            }
+          });
+    })
+    
+}

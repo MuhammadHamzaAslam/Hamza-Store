@@ -16,6 +16,10 @@ nav{
 }
 a{
     color: white !important;
+    /* background-color: black !important; */
+}
+.dropdown-menu{
+    background-color: black !important  ;
 }
 #product{
     height: 100px;
