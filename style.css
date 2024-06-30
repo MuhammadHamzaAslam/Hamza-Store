@@ -1,76 +1,36 @@
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
 #logo {
     height: 100px;
     width: 100px;
     background-color: transparent;
 }
-
-.con {
-    background-color: #f8f9fa;
+nav{
+    height: 100px;
+    position: fixed;
+    z-index: 1;
 }
-
-ul {
+#product{
+    height: 100px;
+    width: 100px;
+}
+.card{
+    height: 350px !important;
+    width: 350px !important;
+    border: 1px solid black;
+    /* gap: 20px !important; */
+    margin: 10px;
+    padding: 20px;
+}
+#cards{
     display: flex;
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
-
-li {
-    list-style-type: none;
-}
-
-#search {
-    width: 600px;
-    outline: none;
-    height: 35px;
-    padding-left: 10px; 
-    border-radius: 5px 0 0 5px; 
-}
-#btn {
-    background-color: #28a745;
-    box-sizing: border-box;
-    height: 35px;
-    width: 35px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+#cart{
+    height: 30px;
+    width: 100px;
     border: none;
-    outline: none;
 }
-
-#btn:hover {
-    background-color: #218838; 
-}
-
-#ma {
-    margin-right: 20px;
-    margin-top: 10px;
-}
-
-#login {
-    height: 40px;
-    width: 120px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    transition: background-color 0.3s; 
-}
-
-#login:hover {
-    background-color: #0056b3;
-}
-
-.h-1 {
-    margin-right: 20px;
-    cursor: pointer; 
-    transition: color 0.3s, transform 0.3s; 
-}
-
-.h-1:hover {
-    color: #007bff;
-    transform: scale(1.1); 
+#title{
+    font-size: 16px;
 }
