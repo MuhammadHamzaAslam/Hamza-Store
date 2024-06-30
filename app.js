@@ -7,21 +7,36 @@ function displayCards() {
         div.innerHTML += `
             <div class="card">
                 <img id="product" src="${data.products[i].thumbnail}" alt="">
-                <h1 id="title">${data.products[i].title}</h1>
-                <h4>${data.products[i].category}</h4>
-                <p>${data.products[i].price}</p>
-                <p>${data.products[i].rating}</p>
-                <p>${data.products[i].returnPolicy}</p>
+                <h1 id="title"><span>Title: </span> ${data.products[i].title}</h1>
+                <h4 id='category'><span>Category: </span>${data.products[i].category}</h4>
+                <p><span>Price: </span>${data.products[i].price}</p>
+                <p><span>Rating: </span>${data.products[i].rating}</p>
+                <p><span>Return Policy: </span>${data.products[i].returnPolicy}</p>
                 <button id="cart">Add To Cart</button>
             </div>
-        `
+        `   
     }
     
 }
-let search = document.getElementById('search').value.toUpperCase()
 function searchThing() {
-    let filterCategory = data.products.filter(product => product.category.toUpperCase().includes(search))
-    displayCards(filterCategory[0].category)
+    let search = document.getElementById('search').value.toUpperCase();
+    let item = document.querySelectorAll('.card')
+    let l = document.getElementsByTagName('h4')
+    for (let i = 0; i <= l.length; i++) {
+        let a = item[i].getElementsByTagName('h4')[0]
+        let value = a.innerHTML || a.innerText || a.textContent
+        if (value.toUpperCase().indexOf(search) >-1) {
+            item[i].style.display = 'block'
+        }
+        else{
+            item[i].style.display = 'none'
+
+        }
+        
+    }
+   
 }
 
 displayCards()
+
+let cartBtn = document.querySelectorAll('#cart')
