@@ -21,6 +21,9 @@ a{
 .dropdown-menu{
     background-color: black !important  ;
 }
+option a:hover{
+    color: white !important;
+}
 #product{
     height: 100px;
     width: 100px;
@@ -55,4 +58,31 @@ a{
 }
 span{
     font-weight: 800;
+}
+.navbar-nav .nav-item .select {
+    background: none;
+    border: none;
+    color: white;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+.navbar-nav .nav-item .select:focus {
+    outline: none;
+}
+.navbar-nav .nav-item .select option {
+    background: white;
+    color: black;
+}
+select{
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-top: 6px !important;
+}
+option{
+    color: white;
+    background-color: black;
+    width: auto;
 }
