@@ -50,6 +50,12 @@ option a:hover{
     color: white;
     border-radius: 15px;
 }
+#cart:hover{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    transition: 2.3s ease;
+}
 #title{
     font-size: 16px;
 }
