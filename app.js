@@ -114,17 +114,6 @@ for (const x of data.products) {
     }
 }
 
-select.addEventListener('change', (e) => {
-    let selected = e.target.value;
-    let items = document.querySelectorAll('.card');
-    items.forEach((product) => {
-        if (selected === 'none' || product.getAttribute('data-category') === selected) {
-            product.style.display = 'block';
-        } else {
-            product.style.display = 'none';
-        }
-    });
-});
 
 let cartBtn = document.querySelectorAll('#cart');
 for (let i = 0; i < cartBtn.length; i++) {
