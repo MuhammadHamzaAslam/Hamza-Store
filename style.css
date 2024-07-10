@@ -9,9 +9,10 @@
 }
 nav{
     height: 90px;
-    position: fixed;
-    z-index: 1;
-    background-color: black !important;
+    /* position: fixed !important;
+    z-index: 1; */
+    /* width: 100vw; */
+    background-color: rgba(0, 0, 0, 0.863) !important;
     color: white !important;
 }
 a{
