@@ -24,31 +24,6 @@
     <div id="cart-items"></div>
 
     <script>
-        function displayCartItems() {
-            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            let cartItemsDiv = document.getElementById('cart-items');
-
-            if (cartItems.length === 0) {
-                cartItemsDiv.innerHTML = '<p>Your cart is empty</p>';
-                return;
-            }
-
-            cartItemsDiv.innerHTML = '';
-            for (let i = 0; i < cartItems.length; i++) {
-                cartItemsDiv.innerHTML += `
-                    <div class="cart-item">
-                        <img src="${cartItems[i].thumbnail}" alt="${cartItems[i].title}">
-                        <h1>${cartItems[i].title}</h1>
-                        <h4>Category: ${cartItems[i].category}</h4>
-                        <p>Price: ${cartItems[i].price}$</p>
-                        <p>Rating: ${cartItems[i].rating}</p>
-                        <p>Return Policy: ${cartItems[i].returnPolicy}</p>
-                    </div>
-                `;
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', displayCartItems);
     </script>
 
 

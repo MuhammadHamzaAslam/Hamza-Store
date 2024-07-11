@@ -74,7 +74,6 @@ select.addEventListener('change', () => {
 
 function attachCartEventListeners() {
     let cartBtn = document.querySelectorAll('#cart');
-    if (localStorage.getItem('tr') == 'true') {
         for (let i = 0; i < cartBtn.length; i++) {
             cartBtn[i].addEventListener('click', (event) => {
                 const productIndex = event.target.getAttribute('data-index');
@@ -102,7 +101,7 @@ function attachCartEventListeners() {
             });
         }
     }
-}
+
 
 attachCartEventListeners();
 
