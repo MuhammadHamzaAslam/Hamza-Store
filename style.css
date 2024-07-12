@@ -93,3 +93,14 @@ option{
     background-color: black;
     width: auto;
 }
+#cartDiv{
+    display: flex;
+    justify-content: center !important;
+    align-items: end;
+    
+}
+#content{
+    height: 100vh;
+    width: 400px;
+    border: 1px solid red;
+}

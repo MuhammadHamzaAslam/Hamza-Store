@@ -3,6 +3,8 @@ let data = { "products": [{ "id": 1, "title": "Essence Mascara Lash Princess", "
 
 let div = document.querySelector('#cards')
 let cartPage = document.getElementById('cartPage')
+let cartDiv = document.getElementById('cardDiv')
+let body = document.getElementsByTagName('body')
 function displayCards() {
     for (let i = 0; i < data.products.length; i++) {
         div.innerHTML += `
@@ -15,9 +17,9 @@ function displayCards() {
                 <p><span>Return Policy: </span>${data.products[i].returnPolicy}</p>
                 <button id="cart">Add To Cart</button>
             </div>
-        `   
+        `
     }
-    
+
 }
 function searchThing() {
     let search = document.getElementById('search').value.toUpperCase();
@@ -26,16 +28,16 @@ function searchThing() {
     for (let i = 0; i <= l.length; i++) {
         let a = item[i].getElementsByTagName('h4')[0]
         let value = a.innerHTML || a.innerText || a.textContent
-        if (value.toUpperCase().indexOf(search) >-1) {
+        if (value.toUpperCase().indexOf(search) > -1) {
             item[i].style.display = 'block'
         }
-        else{
+        else {
             item[i].style.display = 'none'
 
         }
-        
+
     }
-   
+
 }
 
 displayCards()
@@ -74,34 +76,40 @@ select.addEventListener('change', () => {
 
 function attachCartEventListeners() {
     let cartBtn = document.querySelectorAll('#cart');
-        for (let i = 0; i < cartBtn.length; i++) {
-            cartBtn[i].addEventListener('click', (event) => {
-                const productIndex = event.target.getAttribute('data-index');
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "You want to place order",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, Place Order!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-                        cartItems.push(data.products[productIndex]);
-                        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                        
-                        Swal.fire({
-                            title: `${data.products[productIndex].title}`,
-                            text: "Your Order Has Been Placed",
-                            icon: "success"
-                        });
-                    }
-                });
+    for (let i = 0; i < cartBtn.length; i++) {
+        cartBtn[i].addEventListener('click', (event) => {
+            const productIndex = event.target.getAttribute('data-index');
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You want to place order",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Place Order!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) ;
+                    cartItems.push(data.products[productIndex]);
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                    Swal.fire({
+                        title: `${data.products[productIndex].title}`,
+                        text: "Your Order Has Been Placed",
+                        icon: "success"
+                    });
+                }
             });
-        }
+        });
     }
+}
 
 
 attachCartEventListeners();
 
+// cartPage.addEventListener('click', () => {
+//     div.innerHTML = ''
+//     cartDiv.innerHTML +=`
+//     <div id="content"></div>
+//     `
+// })
