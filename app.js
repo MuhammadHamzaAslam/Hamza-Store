@@ -15,11 +15,11 @@ function displayCards() {
                 <p><span>Price: </span>${data.products[i].price}$</p>
                 <p><span>Rating: </span>${data.products[i].rating}</p>
                 <p><span>Return Policy: </span>${data.products[i].returnPolicy}</p>
-                <button id="cart">Add To Cart</button>
+                <button id="cart">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
             </div>
         `
+        attachCartEventListeners();
     }
-
 }
 function searchThing() {
     let search = document.getElementById('search').value.toUpperCase();
@@ -65,7 +65,7 @@ select.addEventListener('change', () => {
                 <p><span>Price: </span>${data.products[i].price}$</p>
                 <p><span>Rating: </span>${data.products[i].rating}</p>
                 <p><span>Return Policy: </span>${data.products[i].returnPolicy}</p>
-                <button id="cart" data-index="${i}">Add To Cart</button>
+                <button id="cart" data-index="${i}">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
             </div>
             `;
         }
@@ -89,10 +89,10 @@ function attachCartEventListeners() {
                 confirmButtonText: "Yes, Place Order!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) ;
-                    cartItems.push(data.products[productIndex]);
-                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                
                     Swal.fire({
                         title: `${data.products[productIndex].title}`,
                         text: "Your Order Has Been Placed",
@@ -105,7 +105,7 @@ function attachCartEventListeners() {
 }
 
 
-attachCartEventListeners();
+// attachCartEventListeners();
 
 // cartPage.addEventListener('click', () => {
 //     div.innerHTML = ''
